@@ -1,0 +1,33 @@
+Scenario: login with valid credentials
+  Given I am on the login page
+  When I fill in "Email" with "test@test.com"
+  And I fill in "Password" with "test123pass"
+  And I press "Login"
+  Then I should be on the users home page
+  And I should see "Login successful"
+  When clicking on the "Product" menu item
+    And entering "iphone x 64 gb" from the dropdown menu
+    And clicking 1st product "iphone x 64 gb"
+    Then move to "Product page"
+    And capture "product name"
+    And capture "price"
+    And add "1 quatity to basket"
+    Scenario: Validate a product
+    When clicking "product basket"
+    And validate "product is added"
+    And validate "Product price and name"    
+  Scenario: User signs out
+  Given I am logged in
+  When I sign out
+  Then I should see a signed out message
+  Scenario: login with valid credentials
+  Given I am on the login page
+  When I fill in "Email" with "test@test.com"
+  And I fill in "Password" with "test123pass"
+  And I press "Login"
+  Then I should be on the users home page
+  And I should see "Login successful"
+  Scenario: Validate a product
+    When clicking "product basket"
+    And validate "product is added"
+    And validate "Product price and name"
